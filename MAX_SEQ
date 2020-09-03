@@ -1,0 +1,20 @@
+def max_seq(sequence):
+    new_sequence, current_sequence = [], []
+
+    for element in sequence:
+
+        if current_sequence and element - 1 ==  current_sequence[-1]:
+            current_sequence.append(element)
+        else:
+            current_sequence = []
+            current_sequence.append(element)
+
+        if len(current_sequence) > len(new_sequence):
+            new_sequence = current_sequence
+
+    return [] if len(new_sequence) == 1 else new_sequence
+
+print(max_seq([10,11,12,1,4,5,6,7,8,9,13,14,100,101]))
+
+RESULTADO:
+[4, 5, 6, 7, 8, 9]
